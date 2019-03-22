@@ -1,64 +1,126 @@
-const findClosest = (inOrder, string, min = 0, max = inOrder.length - 1) => {
-  const middle = Math.round((min + max) / 2);
-  const value = inOrder[middle];
+const convertTense = {
+  p: 'present',
+  i: 'imperfect',
+  f: 'future',
+  a: 'aorist',
+  r: 'perfect',
+  l: 'pluperfect',
+  t: 'future perfect',
+}
 
-  if (min >= max) {
-    return max;
-  } if (max === min + 1) {
-    if (string > inOrder[min]) {
-      return max;
-    }
-    return min;
-  } if (string < value) {
-    return findClosest(inOrder, string, min, middle);
-  }
-  return findClosest(inOrder, string, middle, max);
+const convertMood = {
+  i: 'indicative',
+  s: 'subjunctive',
+  o: 'optative',
+  m: 'imperative',
+};
+
+const convertNumber = {
+  s: 'singular',
+  d: 'dual',
+  p: 'plural',
+};
+
+const convertPerson = {
+  1: 'first',
+  2: 'second',
+  3: 'third',
+};
+
+const convertVoice = {
+  a: 'active',
+  m: 'middle',
+  p: 'passive',
+  e: 'middle/passive',
+};
+
+const convertForm = {
+  i: 'infinitive',
+  p: 'participle',
+};
+
+const convertGender = {
+  m: 'masculine',
+  f: 'feminine',
+  n: 'neuter',
 };
 
 class Parser {
   constructor(dictionary) {
-    this.matchers = [dictionary.exact, dictionary.greek, dictionary.latin];
-    this.inOrder = dictionary.inOrder;
-    this.dictionary = dictionary.dictionary;
+    this.dictionary = dictionary;
+    // this.matchers = [dictionary.exact, dictionary.greek, dictionary.latin];
+    // this.dictionary = dictionary.dictionary;
   }
 
-  lookup(string) {
-    const key = string.toLowerCase().normalize();
-    const results = [];
-    const headwords = {};
-    const { dictionary } = this;
+  parseKey(key) {
+    const { headwords, notes, roots } = this.dictionary;
 
-    this.matchers.forEach((matcher) => {
-      if (matcher[key]) {
-        matcher[key].forEach((headword) => {
-          if (!headwords[headword]) {
-            headwords[headword] = true;
+    const [headwordIndex, rootIndex, notesIndex, string] = key.split('~');
+    const [tense, mood, number, person, voice, form, gender] = string.split('');
 
-            results.push({ headword, definition: dictionary[headword] });
-          }
-        });
-      }
-    });
+    const bundle = {};
 
-    return results;
-  }
-
-  wordsAt(string, count = 26) {
-    const key = string.toLowerCase().normalize();
-    const { inOrder } = this;
-    const closest = findClosest(inOrder, key);
-    const entries = [];
-
-    for (let ii = closest; ii < Math.min(closest + count, inOrder.length); ii += 1) {
-      entries.push({ index: ii, entry: inOrder[ii] });
+    if (headwordIndex !== '') {
+      bundle.headword = headwords[Number(headwordIndex)];
+    } else {
+      bundle.headword = '-';
     }
 
-    return {
-      entries,
-      previous: inOrder[Math.max(0, closest - 1)],
-      next: inOrder[Math.min(inOrder.length - 1, closest + 1)],
-    };
+    if (rootIndex !== '') {
+      bundle.root = roots[Number(rootIndex)];
+    } else {
+      bundle.root = '-';
+    }
+
+    if (notesIndex !== '') {
+      bundle.notes = notes[Number(notesIndex)];
+    } else {
+      bundle.notes = '-';
+    }
+
+    bundle.tense = convertTense[tense] || '-';
+    bundle.mood = convertMood[mood] || '-';
+    bundle.number = convertNumber[number] || '-';
+    bundle.person = convertPerson[person] || '-';
+    bundle.voice = convertVoice[voice] || '-';
+    bundle.form = convertForm[form] || 'finite';
+    bundle.gender = convertGender[gender] || '-';
+
+    return bundle;
   }
+
+  lookup(word, accents) {
+    const { macronLookup, diacriticLookup, lookup } = this.dictionary;
+
+    let matchingLookups = []
+
+    if (accents) {
+      matchingLookups = macronLookup[word];
+    } else {
+      matchingLookups = diacriticLookup[word];
+    }
+
+    console.log(word)
+    console.log(matchingLookups)
+
+    if (!matchingLookups) {
+      return [];
+    }
+
+    const matchingStrings = [];
+
+    matchingLookups.forEach((fullWord) => {
+      lookup[fullWord].forEach((key) => {
+        matchingStrings.push({
+          fullWord,
+          key,
+          bundle: this.parseKey(key),
+        });
+      });
+    });
+
+    return matchingStrings;
+  };
 }
 
 export default Parser;

@@ -101,7 +101,7 @@ def convert(strings)
     'indicative' => { mood: 'i' }, # indicative
     'subjunctive' => { mood: 's' }, # subjunctive
     'optative' => { mood: 'o' }, # optative
-    'imperative' => { mood: 'i' }, # imperative
+    'imperative' => { mood: 'm' }, # imperative
     'singular' => { number: 's' }, # singular
     'dual' => { number: 'd' }, # dual
     'plural' => { number: 'p' }, # plural
@@ -288,7 +288,7 @@ words.each do |word, values|
         notes << note
       end
 
-      shortword << root_map[root]
+      shortword << note_map[note]
     else
       shortword << ''
     end
@@ -311,8 +311,14 @@ macron_removed = {}
 diacritic_removed = {}
 
 words.keys.each do |word|
-  macron_removed[remove_macrons(word)] = word
-  diacritic_removed[remove_diacritics(word)] = word
+  macron_removed_word = remove_macrons(word)
+  diacritic_removed_word = remove_diacritics(word)
+
+  macron_removed[macron_removed_word] ||= []
+  macron_removed[macron_removed_word] << word
+
+  diacritic_removed[diacritic_removed_word] ||= []
+  diacritic_removed[diacritic_removed_word] << word
 end
 
 # File.open('lookup.json', 'w') { |f| f.write(words.to_json) }

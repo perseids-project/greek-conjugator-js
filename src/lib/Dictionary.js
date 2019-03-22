@@ -1,15 +1,18 @@
-import dictionary from '../dictionaries/dictionary.json';
-import exact from '../dictionaries/exact-match.json';
-import greek from '../dictionaries/greek-match.json';
-import latin from '../dictionaries/latin-match.json';
-import inOrder from '../dictionaries/in-order.json';
+import diacriticLookup from '../dictionaries/diacritic-lookup.json';
+import headwords from '../dictionaries/headwords.json';
+import lookup from '../dictionaries/lookup.json';
+import notes from '../dictionaries/notes.json';
+import macronLookup from '../dictionaries/macron-lookup.json';
+import roots from '../dictionaries/roots.json';
 
 const Dictionary = {
-  dictionary,
-  exact,
-  greek,
-  latin,
-  inOrder,
+  diacriticLookup,
+  headwords,
+  lookup,
+  notes,
+  macronLookup,
+  roots,
 };
+
 
 export default Dictionary;
