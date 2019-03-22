@@ -9,21 +9,18 @@ import AsyncLookup from '../AsyncLookup';
 const App = () => (
   <React.Fragment>
     <PerseidsHeader>
-      Woodhouse English-Greek Dictionary
+      Conjugator
     </PerseidsHeader>
     <div className="container text-center">
       <header>
         <h1 className="h3 pt-4 mb-1 font-weight-normal">
-          English-Greek Dictionary
+          Conjugator
         </h1>
         <h4 className="h5 mb-2 font-weight-normal">
           <em>
-            A Vocabulary of the Attic Language
+            Ancient Greek Verb Conjugator
           </em>
         </h4>
-        <h5 className="h5 mb-3 font-weight-normal">
-          S. C. Woodhouse
-        </h5>
       </header>
       <main>
         <div className="mb-4">
@@ -34,8 +31,8 @@ const App = () => (
       </main>
     </div>
     <PerseidsFooter
-      github="https://github.com/perseids-project/woodhouse-js"
-      report="https://github.com/perseids-project/woodhouse-js/issues"
+      github="https://github.com/perseids-project/conjugator-js"
+      report="https://github.com/perseids-project/conjugator-js/issues"
     />
   </React.Fragment>
 );

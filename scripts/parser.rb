@@ -77,6 +77,8 @@ def permutations2(prefix, strings)
 end
 
 def split_all(string)
+  return [] if string == ""
+
   segments = string.split
 
   combinations = segments.map { |segment| segment.split(/,|\//).uniq }
@@ -228,6 +230,7 @@ notes = []
 note_map = {}
 
 files = Dir.glob('./pages/words/*')
+
 files.each_with_index do |filename, ii|
   file = File.read(filename)
   doc = Nokogiri::HTML(file)
@@ -243,7 +246,7 @@ files.each_with_index do |filename, ii|
 
   headword = normalize(headword)
 
-  inflections = doc.css('.NavFrame').select { |frame| frame.css('[lang=grc]').count > 0 }
+  inflections = doc.css('.NavFrame').select { |frame| frame.at_css('.NavHead').css('[lang=grc]').count > 0 }
 
   if inflections.length == 0
     write_error(:no_inflections, filename, headword)
@@ -322,10 +325,10 @@ words.keys.each do |word|
 end
 
 # File.open('lookup.json', 'w') { |f| f.write(words.to_json) }
-File.open('lookup.json', 'w') { |f| f.write(JSON.pretty_generate(words)) }
+File.open('json/lookup.json', 'w') { |f| f.write(JSON.pretty_generate(words)) }
 
-File.open('headwords.json', 'w') { |f| f.write(headwords.to_json) }
-File.open('roots.json', 'w') { |f| f.write(roots.to_json) }
-File.open('notes.json', 'w') { |f| f.write(notes.to_json) }
-File.open('macron-lookup.json', 'w') { |f| f.write(macron_removed.to_json) }
-File.open('diacritic-lookup.json', 'w') { |f| f.write(diacritic_removed.to_json) }
+File.open('json/headwords.json', 'w') { |f| f.write(headwords.to_json) }
+File.open('json/roots.json', 'w') { |f| f.write(roots.to_json) }
+File.open('json/notes.json', 'w') { |f| f.write(notes.to_json) }
+File.open('json/macron-lookup.json', 'w') { |f| f.write(macron_removed.to_json) }
+File.open('json/diacritic-lookup.json', 'w') { |f| f.write(diacritic_removed.to_json) }
