@@ -1,0 +1,27 @@
+.background-0 {
+  background-color: rgba(0, 0, 0, .05);
+}
+
+.background-1 {
+}
+
+.background-2 {
+}
+
+.entry-paragraph {
+  margin-bottom: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.alphabet-container {
+  width: 100%;
+}
+
+.alphabet-btn-group {
+  width: 100%;
+}
+
+.alphabet-letter {
+  flex: 1 1 0!important;
+}

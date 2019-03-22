@@ -1,0 +1,45 @@
+{
+  "name": "woodhouse-js",
+  "version": "0.0.7",
+  "private": true,
+  "homepage": "https://perseids-project.github.io/woodhouse-js/",
+  "dependencies": {
+    "@githubprimer/octicons-react": "^8.3.0",
+    "bootstrap": "^4.1.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-jest": "^22.1.3",
+    "gh-pages": "^1.2.0",
+    "jest-dom": "^1.11.0",
+    "localforage": "^1.7.2",
+    "perseids-react-components": "^0.0.9",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-app-rewired": "^2.0.2",
+    "react-dom": "^16.7.0",
+    "react-loadable": "^5.4.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.3",
+    "react-testing-library": "^4.1.4",
+    "reactstrap": "^7.1.0"
+  },
+  "scripts": {
+    "deploy": "yarn deploy-github && yarn deploy-perseids",
+    "predeploy-github": "yarn run build",
+    "deploy-github": "yarn run cleanup && gh-pages -d build",
+    "predeploy-perseids": "PUBLIC_URL='/woodhouse' yarn run build",
+    "deploy-perseids": "yarn run cleanup && gh-pages -d build -b perseids-build",
+    "cleanup": "rm -rf node_modules/gh-pages/.cache",
+    "build-dictionary": "node ./scripts/build-dictionary.js",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build && cp build/index.html build/404.html",
+    "lint": "eslint --ext=js --ext=jsx .",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
