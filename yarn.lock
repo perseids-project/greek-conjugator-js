@@ -9796,6 +9796,16 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-arimo@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-arimo/-/typeface-arimo-0.0.72.tgz#5476119bfc3d2c9478a3308c6030ddd1ec567a50"
+  integrity sha512-DF6wnbqwcZx91zECeOA0LiHkjKWrq0PH6wFCnBxU7WUiP4uCQSGbES02zSimaJS/u0nlVeHAXkMyT4ma8hWPjw==
+
+typeface-tinos@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-tinos/-/typeface-tinos-0.0.72.tgz#cc6cb6a6b45df26ea11f7d4b285e0235f7656c34"
+  integrity sha512-Uvyv933bonxjj6JQTR6WWOZARNYTJ+Ul72t4kU3QZ1nVE59so8AddCQOwj1AfqxcLhtdSIYVl4NkSVr+RFlVlA==
+
 uglify-es@^3.3.4:
   version "3.3.9"
   resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
