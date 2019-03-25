@@ -2,7 +2,7 @@
   "name": "conjugator-js",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://perseids-project.github.io/conjugator-js/",
+  "homepage": "https://perseids-project.github.io/conjugator",
   "dependencies": {
     "@githubprimer/octicons-react": "^8.3.0",
     "bootstrap": "^4.1.2",
