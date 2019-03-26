@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/conjugator/precache-manifest.c4cf261e8b58ff70fddeae309609676c.js"
+  "/greek-conjugator-js/precache-manifest.024a64a52b6e55e484825d4761b9dc02.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/conjugator/index.html", {
+workbox.routing.registerNavigationRoute("/greek-conjugator-js/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
