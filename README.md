@@ -1,31 +1,31 @@
-# Woodhouse JS
+# Greek Conjugator
 
-This is the entire *English-Greek Dictionary: A Vocabulary of the Attic Language* by S. C. Woodhouse in JavaScript.
-You should be able to use this web app with or without internet access after you load it once.
+Finds the conjugation of Ancient Greek verbs.
 
 ## Sources
 
-The Woodhouse text used is based on
-
-* [http://www.textkit.com/greek-latin-forum/viewtopic.php?t=62713](http://www.textkit.com/greek-latin-forum/viewtopic.php?t=62713)
-* [https://archive.org/details/Woodhouse\_201805](https://archive.org/details/Woodhouse_201805)
-* [https://www.lib.uchicago.edu/efts/Woodhouse/](https://www.lib.uchicago.edu/efts/Woodhouse/)
+The conjugations are built on the Greek verb conjugations entered by users in [Wiktionary](https://en.wiktionary.org/wiki/Category:Ancient_Greek_verbs).
 
 ## Try it Out
 
-[https://apps.perseids.org/woodhouse/](https://apps.perseids.org/woodhouse/)
+[https://apps.perseids.org/greek-conjugator/](https://apps.perseids.org/greek-conjugator/)
 
 ### How to Use
 
-Type a word in the input box and you should see the definition(s) appear below.
+Type a word in the input box and you should see the conjugation(s) appear below.
 
 ## Installation
 
 `yarn install`
 
-## Updating the dictionary
+## Updating the conjugations
 
-Update the file `vendor/woodhouse.json` with any changes then run `yarn run build-dictionary`.
+```
+cd scripts/
+ruby crawler.rb
+ruby parser.rb
+cp *.json ../src/dictionaries/
+```
 
 ## Running the development server
 
@@ -38,8 +38,8 @@ Then run the command `PUBLIC_URL='./path/of/app' yarn build`.
 This will generate a set of static files in the `build/` directory that you can serve.
 
 For example, if you want to deploy it at `www.example.com/` then run `PUBLIC_URL='./' yarn build`.
-If you want to deploy it at `www.example.com/lexica/woodhouse` then run
-`PUBLIC_URL='./lexica/woodhouse' yarn build`.
+If you want to deploy it at `www.example.com/lexica/conjugator` then run
+`PUBLIC_URL='./lexica/conjugator' yarn build`.
 
 ## Running tests
 
