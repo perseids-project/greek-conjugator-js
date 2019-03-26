@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string'
 
+import styles from './Lookup.module.css';
+
 import Parser from '../../lib/Parser';
 
 const dictionaryPropType = PropTypes.shape({
@@ -33,11 +35,13 @@ const renderBundle = ({
   form,
   gender,
 }) => (
-  <table>
+  <table className={`table table-bordered table-striped ${styles.table}`}>
     <tbody>
       <tr>
-        <th>Headword</th>
-        <td>{headword}</td>
+        <th width="33%">Headword</th>
+        <td>
+          {headword} (<a href={`https://en.wiktionary.org/wiki/${headword}`} target="_blank">link</a>)
+        </td>
       </tr>
       <tr>
         <th>Root</th>
@@ -131,7 +135,7 @@ class Lookup extends Component {
     const entries = this.parser.lookup(word, !ignoreAccents);
 
     return entries.map(({ key, fullWord, bundle }) => (
-      <div key={key}>
+      <div className="mb-5" key={key}>
         <h4>{fullWord}</h4>
         {renderBundle(bundle)}
       </div>
