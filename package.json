@@ -1,8 +1,8 @@
 {
-  "name": "conjugator-js",
+  "name": "greek-conjugator-js",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://perseids-project.github.io/conjugator",
+  "homepage": "https://perseids-project.github.io/greek-conjugator-js",
   "dependencies": {
     "@githubprimer/octicons-react": "^8.3.0",
     "bootstrap": "^4.1.2",
@@ -13,6 +13,7 @@
     "localforage": "^1.7.2",
     "perseids-react-components": "^0.0.9",
     "prop-types": "^15.6.2",
+    "query-string": "^6.4.0",
     "react": "^16.7.0",
     "react-app-rewired": "^2.0.2",
     "react-dom": "^16.7.0",
@@ -28,7 +29,7 @@
     "deploy": "yarn deploy-github && yarn deploy-perseids",
     "predeploy-github": "yarn run build",
     "deploy-github": "yarn run cleanup && gh-pages -d build",
-    "predeploy-perseids": "PUBLIC_URL='/conjugator' yarn run build",
+    "predeploy-perseids": "PUBLIC_URL='/greek-conjugator' yarn run build",
     "deploy-perseids": "yarn run cleanup && gh-pages -d build -b perseids-build",
     "cleanup": "rm -rf node_modules/gh-pages/.cache",
     "build-dictionary": "node ./scripts/build-dictionary.js",

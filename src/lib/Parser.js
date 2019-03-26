@@ -45,6 +45,10 @@ const convertGender = {
   n: 'neuter',
 };
 
+const stripAccents = (word) => {
+  return word.normalize('NFD').split('').filter(ch => /[αβγδεζηθικλμνξοπρσςτυφχψω ]/.test(ch)).join('').normalize('NFC')
+};
+
 class Parser {
   constructor(dictionary) {
     this.dictionary = dictionary;
@@ -97,11 +101,8 @@ class Parser {
     if (accents) {
       matchingLookups = macronLookup[word];
     } else {
-      matchingLookups = diacriticLookup[word];
+      matchingLookups = diacriticLookup[stripAccents(word)];
     }
-
-    console.log(word)
-    console.log(matchingLookups)
 
     if (!matchingLookups) {
       return [];

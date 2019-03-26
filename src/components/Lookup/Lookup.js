@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import queryString from 'query-string'
 
 import Parser from '../../lib/Parser';
 
@@ -79,12 +80,6 @@ const renderBundle = ({
 );
 
 class Lookup extends Component {
-  // static propTypes = {
-  //   dictionary: dictionaryPropType.isRequired,
-  //   history: historyPropType.isRequired,
-  //   match: matchPropType.isRequired,
-  // }
-
   constructor(props) {
     super(props);
 
@@ -92,18 +87,48 @@ class Lookup extends Component {
 
     this.parser = new Parser(dictionary);
     this.handleChange = this.handleChange.bind(this);
+    this.handleIgnoreAccents = this.handleIgnoreAccents.bind(this);
     this.renderEntries = this.renderEntries.bind(this);
+    this.ignoreAccents = this.ignoreAccents.bind(this);
+    this.setIgnoreAccents = this.setIgnoreAccents.bind(this);
   }
 
   handleChange(event) {
     const { value } = event.target;
-    const { history } = this.props;
+    const { history, location: { search } } = this.props;
 
-    history.push(`/${value}`);
+    history.push({
+      pathname: `/${value}`,
+      search,
+    });
+  }
+
+  handleIgnoreAccents(event) {
+    const { target: { checked } } = event;
+
+    this.setIgnoreAccents(checked);
+  }
+
+  ignoreAccents() {
+    const { search } = this.props.location;
+
+    const { ignoreAccents } = queryString.parse(search)
+
+    return ignoreAccents !== 'false';
+  }
+
+  setIgnoreAccents(ignoreAccents) {
+    const { history, location: { pathname } } = this.props;
+
+    history.push({
+      pathname,
+      search: queryString.stringify({ ignoreAccents }),
+    });
   }
 
   renderEntries(word) {
-    const entries = this.parser.lookup(word);
+    const ignoreAccents = this.ignoreAccents();
+    const entries = this.parser.lookup(word, !ignoreAccents);
 
     return entries.map(({ key, fullWord, bundle }) => (
       <div key={key}>
@@ -116,10 +141,19 @@ class Lookup extends Component {
   render() {
     const { match } = this.props;
     const word = match.params.word || '';
+    const ignoreAccents = this.ignoreAccents();
 
     return (
       <div className="mt-4">
-        <input className="form-control mb-4" type="text" value={word} onChange={this.handleChange} placeholder="Enter verb ..." aria-label="lookup" />
+        <div>
+          <input className="form-control" type="text" value={word} onChange={this.handleChange} placeholder="Enter verb ..." aria-label="lookup" />
+        </div>
+        <div className="text-right mb-4">
+          <div className="form-check form-check-inline">
+            <input type="checkbox" className="form-check-input" checked={ignoreAccents} onChange={this.handleIgnoreAccents} name="ignoreAccents" />
+            <label className="form-check-label">Ignore accents</label>
+          </div>
+        </div>
         {this.renderEntries(word)}
       </div>
     );
