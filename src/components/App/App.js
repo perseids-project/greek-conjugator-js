@@ -31,6 +31,7 @@ const App = () => (
       </main>
     </div>
     <PerseidsFooter
+      copyright=" "
       github="https://github.com/perseids-project/conjugator-js"
       report="https://github.com/perseids-project/conjugator-js/issues"
     />
