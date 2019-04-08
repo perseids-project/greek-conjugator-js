@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/greek-conjugator-js/static/js/runtime~main.8cc6d2bf.js"
   },
   {
-    "revision": "768272d5b0b73e5d713e3b509b4a14ee",
+    "revision": "e6a6a42a9026b785e68e3be4ddf0120f",
     "url": "/greek-conjugator-js/index.html"
   }
 ];
