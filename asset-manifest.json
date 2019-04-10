@@ -1,7 +1,7 @@
 {
   "main.css": "/greek-conjugator/static/css/main.fddc3ec1.chunk.css",
-  "main.js": "/greek-conjugator/static/js/main.5dd7c440.chunk.js",
-  "main.js.map": "/greek-conjugator/static/js/main.5dd7c440.chunk.js.map",
+  "main.js": "/greek-conjugator/static/js/main.ed9be3b6.chunk.js",
+  "main.js.map": "/greek-conjugator/static/js/main.ed9be3b6.chunk.js.map",
   "static/js/1.f389817c.chunk.js": "/greek-conjugator/static/js/1.f389817c.chunk.js",
   "static/js/1.f389817c.chunk.js.map": "/greek-conjugator/static/js/1.f389817c.chunk.js.map",
   "static/css/2.070c8b8c.chunk.css": "/greek-conjugator/static/css/2.070c8b8c.chunk.css",
@@ -9,9 +9,9 @@
   "static/js/2.df71ff0e.chunk.js.map": "/greek-conjugator/static/js/2.df71ff0e.chunk.js.map",
   "runtime~main.js": "/greek-conjugator/static/js/runtime~main.8fd72062.js",
   "runtime~main.js.map": "/greek-conjugator/static/js/runtime~main.8fd72062.js.map",
-  "static/css/main.fddc3ec1.chunk.css.map": "/greek-conjugator/static/css/main.fddc3ec1.chunk.css.map",
   "static/css/2.070c8b8c.chunk.css.map": "/greek-conjugator/static/css/2.070c8b8c.chunk.css.map",
+  "static/css/main.fddc3ec1.chunk.css.map": "/greek-conjugator/static/css/main.fddc3ec1.chunk.css.map",
   "index.html": "/greek-conjugator/index.html",
-  "precache-manifest.79e3a7adf12d13506abdfff3182a6ce6.js": "/greek-conjugator/precache-manifest.79e3a7adf12d13506abdfff3182a6ce6.js",
+  "precache-manifest.4ccf5f638b4f34739bf3643f94631ac4.js": "/greek-conjugator/precache-manifest.4ccf5f638b4f34739bf3643f94631ac4.js",
   "service-worker.js": "/greek-conjugator/service-worker.js"
 }
