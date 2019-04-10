@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "680ec28ecf483557e64e",
+    "revision": "6c79dd131c8ee41cd267",
     "url": "/greek-conjugator-js/static/css/main.fddc3ec1.chunk.css"
   },
   {
-    "revision": "680ec28ecf483557e64e",
-    "url": "/greek-conjugator-js/static/js/main.680ec28e.chunk.js"
+    "revision": "6c79dd131c8ee41cd267",
+    "url": "/greek-conjugator-js/static/js/main.6c79dd13.chunk.js"
   },
   {
     "revision": "f389817cb00db187bdaf",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/greek-conjugator-js/static/js/runtime~main.8cc6d2bf.js"
   },
   {
-    "revision": "e6a6a42a9026b785e68e3be4ddf0120f",
+    "revision": "2eb18d21e5012813a401da4c36ea50fb",
     "url": "/greek-conjugator-js/index.html"
   }
 ];
