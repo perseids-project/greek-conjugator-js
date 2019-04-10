@@ -32,8 +32,8 @@ const App = () => (
     </div>
     <PerseidsFooter
       copyright=" "
-      github="https://github.com/perseids-project/conjugator-js"
-      report="https://github.com/perseids-project/conjugator-js/issues"
+      github="https://github.com/perseids-project/greek-conjugator-js"
+      report="https://github.com/perseids-project/greek-conjugator-js/issues"
     />
   </React.Fragment>
 );
