@@ -6,7 +6,7 @@ const convertTense = {
   r: 'perfect',
   l: 'pluperfect',
   t: 'future perfect',
-}
+};
 
 const convertMood = {
   i: 'indicative',
@@ -45,9 +45,8 @@ const convertGender = {
   n: 'neuter',
 };
 
-const stripAccents = (word) => {
-  return word.normalize('NFD').split('').filter(ch => /[αβγδεζηθικλμνξοπρσςτυφχψω ]/.test(ch)).join('').normalize('NFC')
-};
+const stripAccents = word => word.normalize('NFD').split('').filter(ch => /[αβγδεζηθικλμνξοπρσςτυφχψω ]/.test(ch)).join('')
+  .normalize('NFC');
 
 class Parser {
   constructor(dictionary) {
@@ -96,7 +95,7 @@ class Parser {
   lookup(word, accents) {
     const { macronLookup, diacriticLookup, lookup } = this.dictionary;
 
-    let matchingLookups = []
+    let matchingLookups = [];
 
     if (accents) {
       matchingLookups = macronLookup[word];
@@ -121,7 +120,7 @@ class Parser {
     });
 
     return matchingStrings;
-  };
+  }
 }
 
 export default Parser;

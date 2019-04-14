@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import queryString from 'query-string'
+import queryString from 'query-string';
 
 import styles from './Lookup.module.css';
 
@@ -23,6 +23,19 @@ const matchPropType = PropTypes.shape({
   }).isRequired,
 });
 
+// bundle.propTypes = {
+//   headword: PropTypes.string,
+//   root: PropTypes.string,
+//   notes: PropTypes.string,
+//   tense: PropTypes.string,
+//   mood: PropTypes.string,
+//   number: PropTypes.string,
+//   person: PropTypes.string,
+//   voice: PropTypes.string,
+//   form: PropTypes.string,
+//   gender: PropTypes.string,
+// };
+
 const renderBundle = ({
   headword,
   root,
@@ -40,7 +53,11 @@ const renderBundle = ({
       <tr>
         <th width="33%">Headword</th>
         <td>
-          {headword} (<a href={`https://en.wiktionary.org/wiki/${headword}`} target="_blank">link</a>)
+          {headword}
+          {' '}
+(
+          <a href={`https://en.wiktionary.org/wiki/${headword}`} target="_blank">link</a>
+)
         </td>
       </tr>
       <tr>
@@ -84,6 +101,12 @@ const renderBundle = ({
 );
 
 class Lookup extends Component {
+  static propTypes = {
+    dictionary: dictionaryPropType.isRequired,
+    history: historyPropType.isRequired,
+    match: matchPropType.isRequired,
+  }
+
   constructor(props) {
     super(props);
 
@@ -116,7 +139,7 @@ class Lookup extends Component {
   ignoreAccents() {
     const { search } = this.props.location;
 
-    const { ignoreAccents } = queryString.parse(search)
+    const { ignoreAccents } = queryString.parse(search);
 
     return ignoreAccents !== 'false';
   }
