@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import queryString from 'query-string'
+import queryString from 'query-string';
 
 import styles from './Lookup.module.css';
 
@@ -23,6 +23,10 @@ const matchPropType = PropTypes.shape({
   }).isRequired,
 });
 
+const locationPropType = PropTypes.shape({
+  search: PropTypes.string.isRequired,
+});
+
 const renderBundle = ({
   headword,
   root,
@@ -40,7 +44,11 @@ const renderBundle = ({
       <tr>
         <th width="33%">Headword</th>
         <td>
-          {headword} (<a href={`https://en.wiktionary.org/wiki/${headword}`} target="_blank">link</a>)
+          {headword}
+          {' '}
+(
+          <a href={`https://en.wiktionary.org/wiki/${headword}`} rel="noopener noreferrer" target="_blank">link</a>
+)
         </td>
       </tr>
       <tr>
@@ -83,7 +91,27 @@ const renderBundle = ({
   </table>
 );
 
+renderBundle.propTypes = {
+  headword: PropTypes.string.isRequired,
+  root: PropTypes.string.isRequired,
+  notes: PropTypes.string.isRequired,
+  tense: PropTypes.string.isRequired,
+  mood: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  person: PropTypes.string.isRequired,
+  voice: PropTypes.string.isRequired,
+  form: PropTypes.string.isRequired,
+  gender: PropTypes.string.isRequired,
+};
+
 class Lookup extends Component {
+  static propTypes = {
+    dictionary: dictionaryPropType.isRequired,
+    history: historyPropType.isRequired,
+    match: matchPropType.isRequired,
+    location: locationPropType.isRequired,
+  }
+
   constructor(props) {
     super(props);
 
@@ -97,15 +125,23 @@ class Lookup extends Component {
     this.setIgnoreAccents = this.setIgnoreAccents.bind(this);
   }
 
-  handleChange(event) {
-    const { value } = event.target;
-    const { history, location: { search } } = this.props;
+  setIgnoreAccents(ignoreAccents) {
+    const { history, location: { pathname } } = this.props;
 
     history.push({
-      pathname: `/${value}`,
-      search,
+      pathname,
+      search: queryString.stringify({ ignoreAccents }),
     });
   }
+
+  ignoreAccents() {
+    const { location } = this.props;
+
+    const { ignoreAccents } = queryString.parse(location.search);
+
+    return ignoreAccents !== 'false';
+  }
+
 
   handleIgnoreAccents(event) {
     const { target: { checked } } = event;
@@ -113,20 +149,13 @@ class Lookup extends Component {
     this.setIgnoreAccents(checked);
   }
 
-  ignoreAccents() {
-    const { search } = this.props.location;
-
-    const { ignoreAccents } = queryString.parse(search)
-
-    return ignoreAccents !== 'false';
-  }
-
-  setIgnoreAccents(ignoreAccents) {
-    const { history, location: { pathname } } = this.props;
+  handleChange(event) {
+    const { value } = event.target;
+    const { history, location: { search } } = this.props;
 
     history.push({
-      pathname,
-      search: queryString.stringify({ ignoreAccents }),
+      pathname: `/${value}`,
+      search,
     });
   }
 
@@ -154,8 +183,10 @@ class Lookup extends Component {
         </div>
         <div className="text-right mb-4">
           <div className="form-check form-check-inline">
-            <input type="checkbox" className="form-check-input" checked={ignoreAccents} onChange={this.handleIgnoreAccents} name="ignoreAccents" />
-            <label className="form-check-label">Ignore accents</label>
+            <label htmlFor="ignore-accent" className="form-check-label">
+              <input type="checkbox" id="ignore-accent" className="form-check-input" checked={ignoreAccents} onChange={this.handleIgnoreAccents} name="ignoreAccents" />
+              Ignore accents
+            </label>
           </div>
         </div>
         {this.renderEntries(word)}
