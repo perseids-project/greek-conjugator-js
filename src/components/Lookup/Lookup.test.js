@@ -16,7 +16,9 @@ it('renders without crashing', () => {
   const history = { push() { } };
   const match = { params: { word: 'hello' } };
 
+
   const location = { search: 'here' };
+
 
   const div = window.document.createElement('div');
   render(
