@@ -5,14 +5,18 @@ import Lookup from './Lookup';
 
 it('renders without crashing', () => {
   const dictionary = {
-    dictionary: {},
-    exact: {},
-    greek: {},
-    latin: {},
+    diacriticLookup: {},
+    headwords: [],
+    lookup: {},
+    notes: [],
+    macronLookup: {},
+    roots: [],
   };
 
   const history = { push() { } };
   const match = { params: { word: 'hello' } };
+
+  const location = {search:'here'};
 
   const div = window.document.createElement('div');
   render(
@@ -20,6 +24,7 @@ it('renders without crashing', () => {
       dictionary={dictionary}
       history={history}
       match={match}
+      location={location}
     />,
     div,
   );

@@ -11,19 +11,14 @@ it('renders without crashing', () => {
 it('renders title', () => {
   const { getByText } = render(<App />);
 
-  expect(getByText('English-Greek Dictionary')).toBeInTheDocument();
-  expect(getByText('A Vocabulary of the Attic Language')).toBeInTheDocument();
+  expect(getByText('Conjugator')).toBeInTheDocument();
+  expect(getByText('Ancient Greek Verb Conjugator')).toBeInTheDocument();
 });
 
 it('looks up a word', () => {
   const { getByText, getByPlaceholderText } = render(<App />);
-  const lookupNode = getByPlaceholderText('Enter word...');
+  const lookupNode = getByPlaceholderText('Enter verb ...');
 
   expect(window.location.pathname).toEqual('/');
 
-  lookupNode.value = 'plinthos';
-  fireEvent.change(lookupNode);
-
-  expect(window.location.pathname).toEqual('/plinthos');
-  expect(getByText('πλίνθος, ἡ, brick')).toBeInTheDocument();
 });

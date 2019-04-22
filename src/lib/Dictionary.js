@@ -13,6 +13,6 @@ const Dictionary = {
   macronLookup,
   roots,
 };
-
+window.dictionary=Dictionary;
 
 export default Dictionary;
