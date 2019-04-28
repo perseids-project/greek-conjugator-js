@@ -13,5 +13,4 @@ it('renders title', () => {
 
   expect(getByText('Conjugator')).toBeInTheDocument();
   expect(getByText('Ancient Greek Verb Conjugator')).toBeInTheDocument();
-
 });
