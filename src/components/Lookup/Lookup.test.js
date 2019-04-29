@@ -13,7 +13,7 @@ it('renders without crashing', () => {
     roots: [],
   };
 
-  const history = { push() { } };
+  const history = { push: () => {} };
   const match = { params: { word: 'hello' } };
   const location = { search: 'here' };
   const div = window.document.createElement('div');
