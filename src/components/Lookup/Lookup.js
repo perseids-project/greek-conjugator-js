@@ -7,10 +7,12 @@ import styles from './Lookup.module.css';
 import Parser from '../../lib/Parser';
 
 const dictionaryPropType = PropTypes.shape({
-  dictionary: PropTypes.object.isRequired,
-  exact: PropTypes.object.isRequired,
-  greek: PropTypes.object.isRequired,
-  latin: PropTypes.object.isRequired,
+  diacriticLookup: PropTypes.object.isRequired,
+  headwords: PropTypes.array.isRequired,
+  lookup: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
+  macronLookup: PropTypes.object.isRequired,
+  roots: PropTypes.array.isRequired,
 });
 
 const historyPropType = PropTypes.shape({
