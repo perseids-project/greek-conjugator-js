@@ -12,5 +12,5 @@ it('renders title', () => {
   const { getByText } = render(<App />);
 
   expect(getByText('Conjugator')).toBeInTheDocument();
-  expect(getByText('Ancient Greek Verb Conjugator')).toBeInTheDocument();
+  expect(getByText('Ancient Greek Verb Conjugator (powered by Wiktionary)')).toBeInTheDocument();
 });

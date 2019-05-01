@@ -18,7 +18,7 @@ const App = () => (
         </h1>
         <h4 className="h5 mb-2 font-weight-normal">
           <em>
-            Ancient Greek Verb Conjugator
+            Ancient Greek Verb Conjugator (powered by Wiktionary)
           </em>
         </h4>
       </header>
