@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/greek-conjugator-js/precache-manifest.d5348a203db42e6a812e3dcd1b47ed25.js"
+  "/greek-conjugator-js/precache-manifest.a0960bc2c3196198c170057e272749ac.js"
 );
 
 self.addEventListener('message', (event) => {

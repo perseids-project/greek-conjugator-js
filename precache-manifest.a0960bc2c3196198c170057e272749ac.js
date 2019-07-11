@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f37f3b434df1e50eccbdfc0d38cbc8e5",
+    "revision": "3ae7b0aff62f5d6280192765ad65fa15",
     "url": "/greek-conjugator-js/index.html"
   },
   {
-    "revision": "40d73a98f8934318f5dc",
-    "url": "/greek-conjugator-js/static/css/2.776713bd.chunk.css"
+    "revision": "64d3ddaf162ca61babb6",
+    "url": "/greek-conjugator-js/static/css/2.bc649c47.chunk.css"
   },
   {
     "revision": "3dd31a63008a8a666778",
     "url": "/greek-conjugator-js/static/css/main.f4cbe5f1.chunk.css"
   },
   {
-    "revision": "40d73a98f8934318f5dc",
-    "url": "/greek-conjugator-js/static/js/2.4dc4d6e9.chunk.js"
+    "revision": "64d3ddaf162ca61babb6",
+    "url": "/greek-conjugator-js/static/js/2.80dfa6a1.chunk.js"
   },
   {
     "revision": "25377bf1f7af471e7710",
