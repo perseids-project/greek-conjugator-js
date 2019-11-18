@@ -1,19 +1,26 @@
 {
   "files": {
     "main.css": "/greek-conjugator-js/static/css/main.f4cbe5f1.chunk.css",
-    "main.js": "/greek-conjugator-js/static/js/main.54cdc196.chunk.js",
-    "main.js.map": "/greek-conjugator-js/static/js/main.54cdc196.chunk.js.map",
-    "runtime~main.js": "/greek-conjugator-js/static/js/runtime~main.d5ada04a.js",
-    "runtime~main.js.map": "/greek-conjugator-js/static/js/runtime~main.d5ada04a.js.map",
-    "static/css/2.bc649c47.chunk.css": "/greek-conjugator-js/static/css/2.bc649c47.chunk.css",
-    "static/js/2.80dfa6a1.chunk.js": "/greek-conjugator-js/static/js/2.80dfa6a1.chunk.js",
-    "static/js/2.80dfa6a1.chunk.js.map": "/greek-conjugator-js/static/js/2.80dfa6a1.chunk.js.map",
-    "static/js/3.d0deadde.chunk.js": "/greek-conjugator-js/static/js/3.d0deadde.chunk.js",
-    "static/js/3.d0deadde.chunk.js.map": "/greek-conjugator-js/static/js/3.d0deadde.chunk.js.map",
+    "main.js": "/greek-conjugator-js/static/js/main.64569fbc.chunk.js",
+    "main.js.map": "/greek-conjugator-js/static/js/main.64569fbc.chunk.js.map",
+    "runtime-main.js": "/greek-conjugator-js/static/js/runtime-main.45e688ae.js",
+    "runtime-main.js.map": "/greek-conjugator-js/static/js/runtime-main.45e688ae.js.map",
+    "static/css/2.fbee80ab.chunk.css": "/greek-conjugator-js/static/css/2.fbee80ab.chunk.css",
+    "static/js/2.a5e1f0fb.chunk.js": "/greek-conjugator-js/static/js/2.a5e1f0fb.chunk.js",
+    "static/js/2.a5e1f0fb.chunk.js.map": "/greek-conjugator-js/static/js/2.a5e1f0fb.chunk.js.map",
+    "static/js/3.2d5f4399.chunk.js": "/greek-conjugator-js/static/js/3.2d5f4399.chunk.js",
+    "static/js/3.2d5f4399.chunk.js.map": "/greek-conjugator-js/static/js/3.2d5f4399.chunk.js.map",
     "index.html": "/greek-conjugator-js/index.html",
-    "precache-manifest.a0960bc2c3196198c170057e272749ac.js": "/greek-conjugator-js/precache-manifest.a0960bc2c3196198c170057e272749ac.js",
+    "precache-manifest.bc11af31b626f8da8efe7b8687171db6.js": "/greek-conjugator-js/precache-manifest.bc11af31b626f8da8efe7b8687171db6.js",
     "service-worker.js": "/greek-conjugator-js/service-worker.js",
-    "static/css/2.bc649c47.chunk.css.map": "/greek-conjugator-js/static/css/2.bc649c47.chunk.css.map",
+    "static/css/2.fbee80ab.chunk.css.map": "/greek-conjugator-js/static/css/2.fbee80ab.chunk.css.map",
     "static/css/main.f4cbe5f1.chunk.css.map": "/greek-conjugator-js/static/css/main.f4cbe5f1.chunk.css.map"
-  }
+  },
+  "entrypoints": [
+    "static/js/runtime-main.45e688ae.js",
+    "static/css/2.fbee80ab.chunk.css",
+    "static/js/2.a5e1f0fb.chunk.js",
+    "static/css/main.f4cbe5f1.chunk.css",
+    "static/js/main.64569fbc.chunk.js"
+  ]
 }
