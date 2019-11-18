@@ -48,9 +48,9 @@ const renderBundle = ({
         <td>
           {headword}
           {' '}
-(
+          (
           <a href={`https://en.wiktionary.org/wiki/${headword}`} rel="noopener noreferrer" target="_blank">link</a>
-)
+          )
         </td>
       </tr>
       <tr>
@@ -107,13 +107,6 @@ renderBundle.propTypes = {
 };
 
 class Lookup extends Component {
-  static propTypes = {
-    dictionary: dictionaryPropType.isRequired,
-    history: historyPropType.isRequired,
-    match: matchPropType.isRequired,
-    location: locationPropType.isRequired,
-  }
-
   constructor(props) {
     super(props);
 
@@ -196,5 +189,12 @@ class Lookup extends Component {
     );
   }
 }
+
+Lookup.propTypes = {
+  dictionary: dictionaryPropType.isRequired,
+  history: historyPropType.isRequired,
+  match: matchPropType.isRequired,
+  location: locationPropType.isRequired,
+};
 
 export default Lookup;

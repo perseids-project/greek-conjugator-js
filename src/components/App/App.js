@@ -7,7 +7,7 @@ import 'perseids-react-components/build/css/index.css';
 import AsyncLookup from '../AsyncLookup';
 
 const App = () => (
-  <React.Fragment>
+  <>
     <PerseidsHeader>
       Conjugator
     </PerseidsHeader>
@@ -35,7 +35,7 @@ const App = () => (
       github="https://github.com/perseids-project/greek-conjugator-js"
       report="https://github.com/perseids-project/greek-conjugator-js/issues"
     />
-  </React.Fragment>
+  </>
 );
 
 export default App;

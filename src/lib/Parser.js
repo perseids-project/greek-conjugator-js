@@ -45,7 +45,7 @@ const convertGender = {
   n: 'neuter',
 };
 
-const stripAccents = word => word.normalize('NFD').split('').filter(ch => /[αβγδεζηθικλμνξοπρσςτυφχψω ]/.test(ch)).join('')
+const stripAccents = (word) => word.normalize('NFD').split('').filter((ch) => /[αβγδεζηθικλμνξοπρσςτυφχψω ]/.test(ch)).join('')
   .normalize('NFC');
 
 class Parser {
