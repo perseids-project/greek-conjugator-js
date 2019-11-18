@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
 
 import styles from './Loading.module.css';
 
@@ -11,7 +11,7 @@ const Loading = ({ text }) => (
 );
 
 Loading.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: string.isRequired,
 };
 
 export default Loading;

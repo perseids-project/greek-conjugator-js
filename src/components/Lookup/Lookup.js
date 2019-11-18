@@ -1,32 +1,38 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import {
+  array,
+  func,
+  object,
+  shape,
+  string,
+} from 'prop-types';
 import queryString from 'query-string';
 
 import styles from './Lookup.module.css';
 
 import Parser from '../../lib/Parser';
 
-const dictionaryPropType = PropTypes.shape({
-  diacriticLookup: PropTypes.object.isRequired,
-  headwords: PropTypes.array.isRequired,
-  lookup: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
-  macronLookup: PropTypes.object.isRequired,
-  roots: PropTypes.array.isRequired,
+const dictionaryPropType = shape({
+  diacriticLookup: object.isRequired,
+  headwords: array.isRequired,
+  lookup: object.isRequired,
+  notes: array.isRequired,
+  macronLookup: object.isRequired,
+  roots: array.isRequired,
 });
 
-const historyPropType = PropTypes.shape({
-  push: PropTypes.func.isRequired,
+const historyPropType = shape({
+  push: func.isRequired,
 });
 
-const matchPropType = PropTypes.shape({
-  params: PropTypes.shape({
-    word: PropTypes.string,
+const matchPropType = shape({
+  params: shape({
+    word: string,
   }).isRequired,
 });
 
-const locationPropType = PropTypes.shape({
-  search: PropTypes.string.isRequired,
+const locationPropType = shape({
+  search: string.isRequired,
 });
 
 const renderBundle = ({
@@ -94,16 +100,16 @@ const renderBundle = ({
 );
 
 renderBundle.propTypes = {
-  headword: PropTypes.string.isRequired,
-  root: PropTypes.string.isRequired,
-  notes: PropTypes.string.isRequired,
-  tense: PropTypes.string.isRequired,
-  mood: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  person: PropTypes.string.isRequired,
-  voice: PropTypes.string.isRequired,
-  form: PropTypes.string.isRequired,
-  gender: PropTypes.string.isRequired,
+  headword: string.isRequired,
+  root: string.isRequired,
+  notes: string.isRequired,
+  tense: string.isRequired,
+  mood: string.isRequired,
+  number: string.isRequired,
+  person: string.isRequired,
+  voice: string.isRequired,
+  form: string.isRequired,
+  gender: string.isRequired,
 };
 
 class Lookup extends Component {
