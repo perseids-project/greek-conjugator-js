@@ -4,7 +4,7 @@ import localForage from 'localforage';
 import Loading from '../Loading';
 import Lookup from '../Lookup';
 
-const DICTIONARY_VERSION = 'woodhouse-0.0.1';
+const DICTIONARY_VERSION = 'conjugator-0.0.1';
 
 const cacheDictionary = (loaded) => {
   const dictionary = loaded.default;
