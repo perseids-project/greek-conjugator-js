@@ -14,5 +14,4 @@ const Dictionary = {
   roots,
 };
 
-
 export default Dictionary;

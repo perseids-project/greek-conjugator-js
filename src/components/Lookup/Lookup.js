@@ -143,7 +143,6 @@ class Lookup extends Component {
     return ignoreAccents !== 'false';
   }
 
-
   handleIgnoreAccents(event) {
     const { target: { checked } } = event;
 
