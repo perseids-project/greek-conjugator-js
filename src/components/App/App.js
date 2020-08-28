@@ -16,11 +16,11 @@ const App = () => (
         <h1 className="h3 pt-4 mb-1 font-weight-normal">
           Conjugator
         </h1>
-        <h4 className="h5 mb-2 font-weight-normal">
+        <h2 className="h5 mb-2 font-weight-normal">
           <em>
             Ancient Greek Verb Conjugator (powered by Wiktionary)
           </em>
-        </h4>
+        </h2>
       </header>
       <main>
         <div className="mb-4">

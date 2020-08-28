@@ -165,7 +165,7 @@ class Lookup extends Component {
 
     return entries.map(({ key, fullWord, bundle }) => (
       <div className="mb-5" key={key}>
-        <h4>{fullWord}</h4>
+        <h3 className="h4">{fullWord}</h3>
         {renderBundle(bundle)}
       </div>
     ));
